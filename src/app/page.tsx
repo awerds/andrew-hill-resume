@@ -5,41 +5,22 @@ import {
   Brain, 
   Cloud, 
   Phone, 
-  Award, 
   Mail, 
   Linkedin,
-  Building,
   Code,
   Database,
   Zap,
-  ArrowRight,
-  CheckCircle,
-  ExternalLink,
   Download,
   Star,
   Sparkles
 } from "lucide-react";
 
 export default function Home() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const fadeInUp = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8 }
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-black text-white overflow-hidden relative">
