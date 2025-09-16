@@ -7,10 +7,9 @@ frontend:
     build:
       commands:
         - npm run build
-        - mkdir -p dist
-        - cp -r out/* dist/
+        - echo "Static site build complete"
   artifacts:
-    baseDirectory: dist
+    baseDirectory: out
     files:
       - '**/*'
   cache:
