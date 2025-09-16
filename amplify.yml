@@ -7,16 +7,12 @@ frontend:
     build:
       commands:
         - npm run build
-        - cp -r out/* .
+        - mkdir -p dist
+        - cp -r out/* dist/
   artifacts:
-    baseDirectory: .
+    baseDirectory: dist
     files:
       - '**/*'
-    excludePaths:
-      - node_modules/**/*
-      - .next/**/*
-      - out/**/*
   cache:
     paths:
       - node_modules/**/*
-      - .next/cache/**/*
