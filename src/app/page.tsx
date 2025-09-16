@@ -91,31 +91,31 @@ export default function Home() {
               </motion.div>
               
               <div className="hidden md:flex items-center space-x-8">
-                {["About", "Experience", "Skills", "Contact"].map((item) => (
+                {[
+                  { name: "About", id: "about" },
+                  { name: "Experience", id: "experience" },
+                  { name: "Skills", id: "skills" },
+                  { name: "Contact", id: "contact" }
+                ].map((item) => (
                   <button
-                    key={item}
+                    key={item.name}
+                    onClick={() => {
+                      const element = document.getElementById(item.id);
+                      element?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                     className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
                   >
-                    {item}
+                    {item.name}
                     <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300"></div>
                   </button>
                 ))}
               </div>
-
-              <motion.button
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-blue-500/25"
-              >
-                <Download className="h-4 w-4" />
-                Resume
-              </motion.button>
             </div>
           </div>
         </nav>
 
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center px-6 pt-20">
+        <section id="about" className="min-h-screen flex items-center justify-center px-6 pt-20">
           <div className="max-w-6xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -142,9 +142,10 @@ export default function Home() {
               
               {/* Professional Summary */}
               <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-                <span className="text-blue-400">Cloud Solutions Architect</span> with 14+ years delivering 
-                <span className="text-purple-400">$2M+ in cost savings</span> through AI-powered contact center solutions. 
-                Led <span className="text-pink-400">50+ enterprise implementations</span> serving 100K+ daily interactions across AWS, Azure, and hybrid environments.
+                Transforming customer experiences through <span className="text-blue-400">intelligent cloud architecture</span> and 
+                <span className="text-purple-400">AI-driven innovation</span>. I bridge the gap between complex technology and 
+                <span className="text-pink-400">human-centered solutions</span>, turning ambitious visions into scalable realities 
+                that delight users and drive business growth.
               </p>
 
 
@@ -155,7 +156,7 @@ export default function Home() {
         </section>
 
         {/* Technical Skills Constellation */}
-        <section className="py-20 px-6">
+        <section id="skills" className="py-20 px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -348,7 +349,7 @@ export default function Home() {
         </section>
 
         {/* Experience Nebula */}
-        <section className="py-32 px-6">
+        <section id="experience" className="py-32 px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -633,7 +634,7 @@ export default function Home() {
         </section>
 
         {/* Contact Wormhole */}
-        <section className="py-32 px-6">
+        <section id="contact" className="py-32 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -678,13 +679,7 @@ export default function Home() {
                   </a>
                 </div>
 
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(139, 92, 246, 0.3)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-12 py-4 rounded-full font-bold text-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg shadow-purple-500/25"
-                >
-                  Initiate Contact Sequence
-                </motion.button>
+
               </div>
             </motion.div>
           </div>
